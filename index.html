@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vjezba</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.14.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.14.1/jquery-ui.min.js"></script>
+</head>
+
+<body>
+    <div id="tab">
+        <ul>
+            <li><a href="#tabs-1">1</a></li>
+            <li><a href="#tabs-2">2</a></li>
+            <li><a href="#tabs-3">3</a></li>
+            <li><a href="#tabs-4">4</a></li>
+        </ul>
+        <div id="tabs-1">Lorem ipsum dolor, sit amet consectetur adipisicing elit. In placeat perferendis nisi,
+            repudiandae distinctio commodi? Numquam fuga voluptatem adipisci laboriosam obcaecati quas doloremque magni
+            et distinctio praesentium! Voluptate optio reiciendis et repellat earum harum eveniet obcaecati, minima
+            animi amet. Ipsam quod laborum perferendis excepturi aliquid ipsum quaerat quis quibusdam! Tenetur.</div>
+        <div id="tabs-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, cupiditate. Voluptatem labore
+            numquam, consectetur voluptate maxime alias iure nulla minus? Doloribus maxime officiis minima assumenda at
+            corrupti sit ipsam delectus esse dolore labore, quis atque beatae, nesciunt ducimus, harum deserunt.
+            Asperiores porro eius officiis, eveniet aut rerum eos eligendi deleniti.</div>
+        <div id="tabs-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate laudantium cupiditate,
+            vitae est dolores reiciendis eveniet adipisci aliquid quod animi? Aspernatur doloribus odio sit nisi
+            praesentium magni qui ipsum, nam, totam quas nobis numquam dolorum. Asperiores accusantium facere harum
+            labore consequatur quaerat iure alias quam autem dicta, voluptas et sed.</div>
+        <div id="tabs-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum facere dicta qui est magni
+            expedita nulla iusto quaerat sunt, magnam pariatur quos, cumque quisquam? Nesciunt doloribus dolores
+            numquam. Quos iusto suscipit et perspiciatis? Dolorem suscipit, doloremque voluptatibus alias aspernatur nam
+            in modi sapiente atque doloribus nostrum. Vitae, illum! Minima, perferendis?</div>
+    </div>
+    <script>
+        $(function(){
+            $("#tab").tabs({
+                collapsible: false,
+                event: "mouseover"
+            })
+            .find("ul").sortable();
+        })
+    </script>
+</body>
+</html>

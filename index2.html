@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.14.1/jquery-ui.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.14.1/themes/smoothness/jquery-ui.css">
+</head>
+
+<body>
+    <div id="toggleCheckboxWrapper">
+        <input type="checkbox" id="toggleCheckbox">
+        <label for="toggleCheckbox">Open All</label>
+    </div>
+    <div id="accordion">
+        <h3>What is the capital of France?</h3>
+        <div class="answer">
+            The capital of France is Paris.
+        </div>
+        <h3>What is 2 + 2?</h3>
+        <div class="answer">
+            2 + 2 equals 4.
+        </div>
+        <h3>What is the tallest mountain in the world?</h3>
+        <div class="answer">
+            The tallest mountain in the world is Mount Everest.
+        </div>
+        <h3>Who wrote "Romeo and Juliet"?</h3>
+        <div class="answer">
+            "Romeo and Juliet" was written by William Shakespeare.
+        </div>
+        <h3>What is the largest ocean on Earth?</h3>
+        <div class="answer">
+            The largest ocean on Earth is the Pacific Ocean.
+        </div>
+        <h3>Who painted the Mona Lisa?</h3>
+        <div class="answer">
+            The Mona Lisa was painted by Leonardo da Vinci.
+        </div>
+        <h3>What is the smallest planet in our solar system?</h3>
+        <div class="answer">
+            The smallest planet in our solar system is Mercury.
+        </div>
+        <h3>What is the hardest natural substance on Earth?</h3>
+        <div class="answer">
+            The hardest natural substance on Earth is diamond.
+        </div>
+        <h3>What is the largest desert in the world?</h3>
+        <div class="answer">
+            The largest desert in the world is the Antarctic Desert.
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#accordion").accordion({
+                active: false,
+                collapsible: true,
+                heightStyle: "content",
+            }).sortable();
+
+            $("#toggleCheckbox").change(function () {
+                if (this.checked) {
+                    $("#accordion .answer").slideDown("fast");
+                } else {
+                    $("#accordion .answer").slideUp("fast");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.14.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.14.1/themes/smoothness/jquery-ui.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        #tabs-container {
+            margin-top: 20px;
+        }
+
+        .tab {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .tab h3 {
+            margin: 0 0 10px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .tab p {
+            margin: 0;
+            font-size: 14px;
+            color: #555;
+        }
+
+        #dialog label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        #dialog input,
+        #dialog textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        #dialog textarea {
+            height: 100px;
+        }
+
+        #dialog button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="Klik">Button</button>
+
+    <div id="dialog" title="Tab date">
+        <label for="tab_title">Title</label>
+        <input type="text" id="tab_title" value="tab_title">
+
+        <label for="tab_content">Content</label>
+        <textarea name="tab_content" id="tab_content">Tab content</textarea>
+    </div>
+
+    <div id="tabs-container"></div>
+
+    <script>
+        $(function () {
+            $("#dialog").dialog({
+                autoOpen: false,
+                closeOnEscape: false,
+                closeText: "Zatvori me",
+                resizable: true,
+                hide: "puff",
+                height: 400,
+                width: 350,
+                show: {
+                    effect: "slide",
+                    duration: 1000,
+                },
+                hide: {
+                    effect: "drop",
+                    duration: 1000
+                },
+                buttons: {
+                    "Dodaj": function () {
+                        var title = $("#tab_title").val();
+                        var content = $("#tab_content").val();
+                        var tabId = "tab-" + new Date().getTime();
+
+                        var newTab = $("<div></div>", {
+                            class: "tab",
+                            id: tabId
+                        }).append(
+                            $("<h3></h3>").text(title),
+                            $("<p></p>").text(content)
+                        );
+
+                        $("#tabs-container").append(newTab);
+
+                        $(this).dialog("close");
+                    },
+                    "Odustani": function () {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+
+            $("#Klik").on("click", function () {
+                $("#dialog").dialog("open");
+            });
+        });
+    </script>
+</body>
+
+</html>
